@@ -92,19 +92,27 @@ window.addEventListener("load", () => {
 });
 
 copyButton.addEventListener("click", (e) => {
-  e.target.innerHTML = 'تم النسخ! <i class="bi bi-clipboard-check-fill"></i>';
-  e.target.classList.remove("text-bg-primary");
-  e.target.classList.add("text-bg-success");
+  const span = copyButton.querySelector("span");
+  const icon = copyButton.querySelector("i");
+
+  span.innerText = "تم النسخ! ";
+  icon.className = "bi bi-clipboard-check-fill";
+
+  copyButton.classList.remove("text-bg-primary");
+  copyButton.classList.add("text-bg-success");
+
   setTimeout(() => {
-    e.target.innerHTML = 'نسخ  <i class="bi bi-clipboard"></i>';
-    e.target.classList.remove("text-bg-success");
-    e.target.classList.add("text-bg-primary");
+    span.textContent = "نسخ ";
+    icon.className = "bi bi-clipboard";
+
+    copyButton.classList.remove("text-bg-success");
+    copyButton.classList.add("text-bg-primary");
   }, 2000);
 });
 
 Prism.highlightAll();
 
-var clipboard = new ClipboardJS(copyButton, {
+let clipboard = new ClipboardJS(copyButton, {
   text: function () {
     return codeDiv.textContent;
   },
