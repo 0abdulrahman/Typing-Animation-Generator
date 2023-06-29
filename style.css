@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap");
+
+/*  */
+body {
+  font-family: "Tajawal", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  padding-top: 5rem;
+}
+
+.my-input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0.25rem;
+}
+
+.my-input-group span {
+  border-radius: 0 !important;
+  border-bottom-right-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.my-input-group input {
+  border-radius: 0 !important;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+
+.my-input-group input:focus {
+  box-shadow: none;
+}
+
+.my-input-group .word {
+  direction: ltr;
+}
+
+.invalid-feedback {
+  font-size: 0.7em;
+}
+
+.test {
+  direction: ltr;
+  text-align: left;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.mode {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 1px solid #0d6efd;
+  padding: 0.5rem 2rem;
+  padding-right: 4rem !important;
+  padding-left: 1.5rem !important;
+  border-radius: 50px;
+}

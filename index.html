@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/bs-icons/font/bootstrap-icons.min.css" />
+    <link href="./assets/CSS/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./assets/images/page-icon.png" type="image/x-icon" />
+    <title>Typing animation generator</title>
+  </head>
+  <body>
+    <div class="mode form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="dark-mode" />
+      <label class="form-check-label stretched-link" for="dark-mode">تبديل الوضع الليلي</label>
+    </div>
+    <div class="container border border-dark-subtle rounded px-4 py-3">
+      <div class="inputs fs-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-3">
+          <div class="count">
+            <label for="words-count">اكتب عدد الكلمات</label>
+            <input type="number" class="form-control" placeholder="مثال: 3" id="words-count" min="1" max="20" />
+            <div class="invalid-feedback">يجب أن يكون عدد الكلمات عددًا صحيحًا من 1 إلى 20</div>
+          </div>
+          <div class="time">
+            <label for="word-time">حدد مدة عرض كل كلمة:</label>
+            <input type="number" class="form-control" placeholder="مثال: 4" id="word-time" min="1" max="20" />
+            <div class="invalid-feedback">يجب أن تكون مدة العرض أكبر من صفر</div>
+          </div>
+          <div class="show">
+            <label for="show">حدد مدة الظهور:</label>
+            <input type="number" class="form-control" placeholder="مثال: 1" id="show" min="1" max="20" />
+            <div class="invalid-feedback">يجب أن تكون مدة الظهور صفر أو أكثر وأقل من مدة عرض الكلمة</div>
+          </div>
+          <div class="hide">
+            <label for="hide">حدد مدة الاختفاء:</label>
+            <input type="number" class="form-control" placeholder="مثال: 1" id="hide" min="1" max="20" />
+            <div class="invalid-feedback" id="hide-error">
+              يجب أن تكون مدة الاختفاء صفر أو أكثر وأقل من مدة عرض الكلمة
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p class="mb-0">تُتنج خانات لإدخال الكلمات أدناه:</p>
+
+        <div
+          class="words row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 border border-primary border-opacity-50 rounded-2 p-2 pb-3 pt-0 my-2 mt-1"
+          style="max-height: 15.625rem; overflow-x: auto"
+        ></div>
+      </div>
+      <hr />
+      <p class="test"></p>
+      <!-- code -->
+      <div id="code">
+        <button class="btn btn-primary" id="generate-code" disabled>عرض كود الأنميشن</button>
+        <pre
+          style="max-height: 12.5rem; overflow-x: auto; direction: ltr"
+        ><code class="language-css" >@keyframes typing {
+    // املأ الخانات المطلوبة أعلاه ثم اضغط على زر [عرض كود الأنميشن]
+  }
+</code></pre>
+        <button type="button" class="btn text-bg-primary" id="copy-button">نسخ <i class="bi bi-clipboard"></i></button>
+      </div>
+    </div>
+
+    <!-- ----------------------- -->
+    <script src="./assets/JS/bootstrap.min.js"></script>
+    <script src="./assets/JS/prism.js"></script>
+    <script src="./assets/JS/clipboard.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
+<!--
+1- a row must be a child of a container: to counteract its padding
+2- every column (col) must have an empty div that has the content
+3- if you want to add a background color, add it to the div, not the column -->
