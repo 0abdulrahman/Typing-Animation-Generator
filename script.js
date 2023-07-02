@@ -123,11 +123,11 @@ function generateCode() {
     time * wordsCount.value
   }s linear infinite;\n}\n
 @keyframes typing {
-  0% {content: ""};\n`;
+  0% {content: "";}\n`;
 
   wordsArray.map((word, wordIndex) => {
     codeDiv.append(
-      generateLines(word, wordIndex, wordPrecentage) + (wordPrecentage * (wordIndex + 1) + "%" + ' {content: ""};\n')
+      generateLines(word, wordIndex, wordPrecentage) + (wordPrecentage * (wordIndex + 1) + "%" + ' {content: "";}\n')
     );
   });
   codeDiv.append(`}`);
@@ -146,7 +146,7 @@ function generateLines(word = "", wordIndex = 0, precentage = 0) {
       "% {" +
       'content: "' +
       currLetters +
-      '"};\n  ';
+      '";}\n  ';
   });
 
   currWord = word.split("");
@@ -157,7 +157,7 @@ function generateLines(word = "", wordIndex = 0, precentage = 0) {
       "% {" +
       'content: "' +
       currWord.join("") +
-      '"};\n  ';
+      '";}\n  ';
     currWord.pop();
   });
 
