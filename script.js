@@ -84,12 +84,10 @@ modeBtn.addEventListener("click", () => {
   }
 });
 
-window.addEventListener("load", () => {
-  if (localStorage.getItem("dark-mode")) {
-    document.documentElement.setAttribute("data-bs-theme", "dark");
-    modeBtn.setAttribute("checked", "");
-  }
-});
+if (localStorage.getItem("dark-mode")) {
+  document.documentElement.setAttribute("data-bs-theme", "dark");
+  modeBtn.setAttribute("checked", "");
+}
 
 copyButton.addEventListener("click", (e) => {
   const span = copyButton.querySelector("span");
