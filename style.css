@@ -42,13 +42,6 @@ body {
   font-size: 0.7em;
 }
 
-.test {
-  direction: ltr;
-  text-align: left;
-  font-size: 2rem;
-  width: 100%;
-}
-
 .mode {
   position: absolute;
   top: 20px;

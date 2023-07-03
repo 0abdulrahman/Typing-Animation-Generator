@@ -126,9 +126,13 @@ function generateCode() {
   0% {content: "";}\n`;
 
   wordsArray.map((word, wordIndex) => {
-    codeDiv.append(
-      generateLines(word, wordIndex, wordPrecentage) + (wordPrecentage * (wordIndex + 1) + "%" + ' {content: "";}\n')
-    );
+    if (hideTime > 0) {
+      codeDiv.append(
+        generateLines(word, wordIndex, wordPrecentage) + (wordPrecentage * (wordIndex + 1) + "%" + ' {content: "";}\n')
+      );
+    } else {
+      codeDiv.append(generateLines(word, wordIndex, wordPrecentage));
+    }
   });
   codeDiv.append(`}`);
 }
@@ -150,16 +154,20 @@ function generateLines(word = "", wordIndex = 0, precentage = 0) {
   });
 
   currWord = word.split("");
-  word.split("").forEach(() => {
-    hidePhase +=
-      precentage * (wordIndex + 1) -
-      (calcHide() / word.length) * (currWord.join("").length + 1) +
-      "% {" +
-      'content: "' +
-      currWord.join("") +
-      '";}\n  ';
-    currWord.pop();
-  });
+  if (hideTime > 0) {
+    word.split("").forEach(() => {
+      hidePhase +=
+        precentage * (wordIndex + 1) -
+        (calcHide() / word.length) * (currWord.join("").length + 1) +
+        "% {" +
+        'content: "' +
+        currWord.join("") +
+        '";}\n  ';
+      currWord.pop();
+    });
+  } else {
+    hidePhase = `${precentage * (wordIndex + 1)}% {content: "${word}";}\n`;
+  }
 
   totalPhase = showPhase + hidePhase;
   return totalPhase;
